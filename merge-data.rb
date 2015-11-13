@@ -40,3 +40,16 @@ CSV.open('data/k-shell-pagerank.csv', 'w') do |csv|
   end
 
 end
+
+
+CSV.open('data/controlabilidad-pagerank.csv', 'w') do |csv|
+
+  csv << ["nodo", "pagerank", "controlabilidad"]
+
+  pagerank.each do |node, score|
+    if controllability[node]
+      csv << [node, score, controllability[node]]
+    end
+  end
+
+end
