@@ -1,10 +1,9 @@
 require 'rubygems'
 require 'mini_magick'
 
-def create_graphic file_name, matrix, width, height
+def create_graphic file_name, matrix, width, height, zoom = 100
   puts "*********"
 
-  zoom = 100
   cmd = "convert -size #{width*zoom}x#{height*zoom} xc:'#ffffff' #{file_name}"
   system(cmd)
 

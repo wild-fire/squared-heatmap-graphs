@@ -4,14 +4,13 @@ require_relative 'graph'
 by_shell_heatmap = {}
 by_pagerank_heatmap = {}
 
-max_kshell = 9
-alpha = 0.01
+granularity = 100
 
 CSV.foreach('data/k-shell-pagerank.csv', headers: true).each do |row|
   kshell = row['kshell'].to_f
   pagerank = row['pagerank'].to_f
   puts row.inspect
-  pagerank_index = (pagerank*10).to_i
+  pagerank_index = (pagerank*granularity).to_i
   by_shell_heatmap[kshell-2] ||= {}
   by_shell_heatmap[kshell-2][pagerank_index] ||= 0
   by_shell_heatmap[kshell-2][pagerank_index] += 1
@@ -21,5 +20,5 @@ CSV.foreach('data/k-shell-pagerank.csv', headers: true).each do |row|
   by_pagerank_heatmap[pagerank_index][kshell-2] += 1
 end
 
-create_graphic "heatmaps/shell-pagerank-by-shell.jpg", by_shell_heatmap, 8, 10
-create_graphic "heatmaps/shell-pagerank-by-pagerank.jpg", by_pagerank_heatmap, 10, 8
+create_graphic "heatmaps/shell-pagerank-by-shell.jpg", by_shell_heatmap, 8, granularity, 1000/granularity
+create_graphic "heatmaps/shell-pagerank-by-pagerank.jpg", by_pagerank_heatmap, granularity, 8, 1000/granularity
