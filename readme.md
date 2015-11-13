@@ -7,7 +7,7 @@ We are using it to compare kshell, controllability and pageranks measures so we 
 - Given a controllability range, in which shell there are more nodes with that controllability?
 - Given a PageRank range, in which shell there are more nodes with that PageRank?
 
-Right now we create 4 graphs:
+Right now we create the following graphs:
 
 - heatmaps/shell-controllability-by-controllability.jpg
 
@@ -19,7 +19,7 @@ So, in each column the darkest pixels show the shell that has more nodes with a 
 - heatmaps/shell-controllability-by-shell.jpg
 
   * Rows: Shell number, from 2 (left) to 9 (right).
-  * Rows: Controllability range, from 0 (down) to 1 (up) in increments of 0.01 .
+  * Columns: Controllability range, from 0 (down) to 1 (up) in increments of 0.01 .
 
 So, in each column the darkest pixels show the more common controllability range for that shell.
 
@@ -33,6 +33,20 @@ So, in each column the darkest pixels show the shell that has more nodes with a 
 - heatmaps/shell-pagerank-by-shell.jpg
 
   * Rows: Shell number, from 2 (left) to 9 (right).
-  * Rows: PageRank range, from 0 (down) to 1 (up) in increments of 0.01 .
+  * Columns: PageRank range, from 0 (down) to 1 (up) in increments of 0.01 .
 
 So, in each column the darkest pixels show the more common PageRank range for that shell.
+
+- heatmaps/controllability-pagerank-by-controllability.jpg
+
+  * Rows: Controllability range, from 0 (left) to 1 (right) in increments of 0.01 .
+  * Columns: PageRank range, from 0 (down) to 1 (up) in increments of 0.01 .
+
+So, in each column the darkest pixels show the PageRank range that has more nodes with a Controllability in that Controllability range.
+
+- heatmaps/controllability-pagerank-by-pagerank.jpg
+
+  * Rows: PageRank range, from 0 (left) to 1 (right) in increments of 0.01 .
+  * Columns: Controllability range, from 0 (down) to 1 (up) in increments of 0.01 .
+
+So, in each column the darkest pixels show the Controllability range that has more nodes with a PageRank in that PageRank range.
